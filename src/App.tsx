@@ -1,38 +1,52 @@
 import React from 'react'
+import { ReactLenis } from 'lenis/react'
 import Hero from './components/Hero/Hero'
+import { LiquidReveal } from './components/LiquidReveal/LiquidReveal';
 import About from './components/About'
 import Skills from './components/Skills'
 import Navbar from './components/Hero/navbar'
 import Contact from './components/Contact'
 
+import baseImg from './assets/space222.png';
+import overlayImg from './assets/sp1.png';
+
 const App = () => {
   return (
-    <>
-      <section>
-        <Navbar />
-      </section>
+    <ReactLenis root>
+      <>
+        <section>
+          <Navbar />
+        </section>
 
-      <section id="hero">
-        <Hero />
-      </section>
+        <section id="hero">
+          <Hero />
+        </section>
 
-      <section id="about">
-        <About />
-      </section>
-      <section id='skills'>
-        <Skills />
-      </section>
+        <LiquidReveal
+          baseImageSrc={baseImg}
+          overlayImageSrc={overlayImg}
+          brushSize={200}
+          lerpAmount={0.08}
+        />
 
-      {/* <section id="projects">
-        <Project />
-      </section> */}
+        <section id="about">
+          <About />
+        </section>
 
-      <section id="contact">
-        <Contact />
-      </section>
+        <section id='skills'>
+          <Skills />
+        </section>
 
-    </>
+        {/* <section id="projects">
+          <Project />
+        </section> */}
 
+        <section id="contact">
+          <Contact />
+        </section>
+
+      </>
+    </ReactLenis>
   )
 }
 

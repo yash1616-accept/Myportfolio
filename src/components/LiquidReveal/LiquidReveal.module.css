@@ -1,0 +1,91 @@
+.liquidRevealContainer {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  /* Full screen section */
+  overflow: hidden;
+  background-color: #050510;
+  /* fallback dark background */
+}
+
+/* Base layer that is meant to be revealed */
+.baseLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  /* Below the canvas */
+}
+
+.magicContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  /* Content above the base image */
+  text-align: center;
+  pointer-events: none;
+  /* Let the mouse events pass to canvas */
+  color: white;
+}
+
+.magicContent h2 {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, #d4af37, #fdfbfb);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+.magicContent p {
+  font-size: 1.5rem;
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .magicContent h2 {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+  }
+
+  .magicContent p {
+    font-size: 1.1rem;
+  }
+}
+
+/* The Canvas that acts as the top layer (overlay) and is erased by the mouse */
+.canvasOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  /* Topmost visual layer (except UI if needed) */
+  pointer-events: auto;
+  /* Needs to receive mouse events */
+  cursor: none;
+
+  /* Gooey effect via SVG filters or CSS.
+     We will apply a subtle SVG filter or contrast/blur trick,.
+     However, standard Canvas composite operations handles the erasing.
+     For a gooey "liquid" edge where it's erased, we can use SVG filters. */
+  filter: url('#gooey-hole');
+}
+
+/* SVG definition is hidden */
+.svgFilter {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}

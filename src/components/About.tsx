@@ -29,7 +29,7 @@ const About: React.FC = () => {
         },
         {
             title: "Backend",
-            skills: ["Node.js", "Python", "Flask", "REST APIs"]
+            skills: ["Node.js", "Python", "Flask", "REST APIs", "Express.js", "Next.js"]
         },
         {
             title: "DevOps & Cloud",
