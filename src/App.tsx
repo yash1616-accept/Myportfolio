@@ -7,8 +7,8 @@ import Skills from './components/Skills'
 import Navbar from './components/Hero/navbar'
 import Contact from './components/Contact'
 
-import baseImg from './assets/space222.png';
-import overlayImg from './assets/sp1.png';
+import baseImg from './assets/space222.PNG';
+import overlayImg from './assets/sp1.PNG';
 
 const App = () => {
   return (
